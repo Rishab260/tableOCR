@@ -110,6 +110,9 @@ def final(img_path, output_dir='temp_output', show_table=False):
 
     interpreter = load_interpreter()
     image_orig = Image.open(img_path)
+    if(image_orig.mode == 'RGBA'):
+        print('RGBA')
+        image_orig = image_orig.convert('RGB')
     original_dim = image_orig.size
     image = image_orig.resize((512,512))
     np_image = np.asarray(image)/255.0
