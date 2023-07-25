@@ -16,6 +16,7 @@ def upload_image(request):
                 with open(csv_file_path, 'r') as csv_file:
                     response = HttpResponse(csv_file, content_type='text/csv')
                     response['Content-Disposition'] = f'attachment; filename="{os.path.basename(csv_file_path)}"'
+                    os.remove(csv_file_path)
                     return response
             except Exception as e:
                 # Handle exceptions here
