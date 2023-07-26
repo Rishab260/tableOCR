@@ -164,6 +164,8 @@ def final(img_path, output_dir='temp_output', show_table=False):
                 f_save = 'pass'
             except:
                 i += 1
+                
+    os.remove(img_path)
 
     if show_table:
         visualize(tab)
